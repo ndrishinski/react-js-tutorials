@@ -8,17 +8,17 @@ export default class Layout extends React.Component {
     super();
     this.state = {
       title: "Welcome",
+      otherTitle: "What the fuck you looking at"
     };
   }
-
-  changeTitle(title) {
-    this.setState({title});
-  }
-
   render() {
+    setTimeout(() => {
+      this.setState({ title: "Sorry, I meant Welcome Homie"})
+    }, 2000);
     return (
       <div>
-        <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
+        <Header title={this.state.title}/>
+        <Header title={this.state.otherTitle} />
         <Footer />
       </div>
     );
